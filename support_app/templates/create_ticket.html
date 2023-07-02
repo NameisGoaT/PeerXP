@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Create New Ticket</h1>
+  <form method="post">
+    {% csrf_token %}
+    <input type="text" name="subject" placeholder="Subject" required>
+    <textarea name="body" placeholder="Body" required></textarea>
+    <select name="priority" required>
+      <option value="low">Low</option>
+      <option value="medium">Medium</option>
+      <option value="high">High</option>
+    </select>
+    <input type="email" name="email" placeholder="Email" value="{{ user.email }}" readonly>
+    <input type="text" name="phone_number" placeholder="Phone Number" value="{{ user.phone_number }}" readonly>
+    <button type="submit">Create Ticket</button>
+  </form>
+{% endblock %}

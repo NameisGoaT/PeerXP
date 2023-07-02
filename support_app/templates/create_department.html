@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Create New Department</h1>
+  <form method="post">
+    {% csrf_token %}
+    <input type="text" name="name" placeholder="Name" required>
+    <textarea name="description" placeholder="Description" required></textarea>
+    <button type="submit">Create Department</button>
+  </form>
+{% endblock %}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Acme Support</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
+</head>
+<body>
+    <nav>
+        <a href="{% url 'login' %}">Login</a>
+        {% if user.is_authenticated %}
+            <a href="{% url 'create_user' %}">Create User</a>
+            <a href="{% url 'create_department' %}">Create Department</a>
+            <a href="{% url 'create_ticket' %}">Create Ticket</a>
+            <a href="{% url 'manage_tickets' %}">Manage Tickets</a>
+        {% endif %}
+    </nav>
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.data-table').DataTable();
+        });
+    </script>
+</body>
+</html>
